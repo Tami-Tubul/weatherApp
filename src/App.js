@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import WeatherComp from './components/WeatherComp';
 
 function App() {
+  const [cityname, setCityname] = useState("ירושלים")
+
   return (
-    <div className="App">
+    <div className="App" >
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>התחזית היומית</p>
       </header>
+      <main className='App-main'>
+        <h1>תחזית מזג האויר היום ב{cityname}</h1>
+        <WeatherComp city={(c => setCityname(c))} />
+      </main>
     </div>
   );
 }
